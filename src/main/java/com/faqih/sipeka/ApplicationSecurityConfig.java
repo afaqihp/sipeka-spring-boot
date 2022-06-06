@@ -36,15 +36,13 @@ extends WebSecurityConfigurerAdapter  {
 		.antMatchers(
 				"/login", 
 				"/resources/**", 
-				"/css/**", 
-				"/fonts/**", 
-				"/img/**").permitAll()
+				"/assets/css/**",  
+				"/assets/img/**").permitAll()
                  .antMatchers("/register", 
                                 "/resources/**", 
-                                "/css/**", 
-                                "/fonts/**", 
-                                "/img/**", 
-                                "/js/**").permitAll()
+                                "/assets/css/**", 
+                                "/assets/image/**", 
+                                "/assets/js/**").permitAll()
                 .antMatchers("/users/addNew").permitAll()
                 .antMatchers("/doctor/add").hasAuthority("ADMIN")
 		.anyRequest().authenticated()
