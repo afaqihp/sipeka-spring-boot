@@ -19,6 +19,8 @@
                 <h3>Edit Clinic Registration</h3>
                 <label for="id">ID</label>
                 <input type="text" name="id" id="id" placeholder="ID" th:field="*{id}" readonly="readonly" />
+                
+                <input type="hidden" name="clinicid" id="clinicid" th:field="*{clinicid}"/>
 
                 <label for="id">User Id</label>
                 <input type="text" id="id" placeholder="ID" name="userid" th:field="*{userid}" readonly="readonly" />

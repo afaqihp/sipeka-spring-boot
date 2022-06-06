@@ -18,7 +18,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
     
-    
+    //Untuk search dokter berdasarkan keyword
     @Query(value = "SELECT * FROM doctor d WHERE d.name like %:keyword% OR d.contact like %:keyword% OR "
             + "d.specialty like %:keyword%", nativeQuery = true)
     List<Doctor> findByKeyword(@Param("keyword") String keyword);

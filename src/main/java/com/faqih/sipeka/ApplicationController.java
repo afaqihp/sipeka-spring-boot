@@ -8,13 +8,13 @@ package com.faqih.sipeka;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 /**
  *
  * @author Faqih
  */
 @Controller
 public class ApplicationController {
-    
     //Kembali ke home
     @GetMapping("/index")
     public String goHome() { 

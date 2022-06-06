@@ -20,6 +20,7 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Intege
     //Mendapatkan appointment by user id
     List<Appointment> findByUserid(int userid);
     
+    //Untuk searching appointment berdasarkan keyword
     @Query(value = "SELECT * FROM appointment a WHERE a.id like %:keyword% OR a.userid like %:keyword% OR "
             + "a.details like %:keyword% OR a.schedule like %:keyword%", nativeQuery = true)
     List<Appointment> findByKeyword(@Param("keyword") String keyword);

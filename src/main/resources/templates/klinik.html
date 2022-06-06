@@ -21,7 +21,9 @@
                 <h3>Clinic Registration</h3>
                 <label for="id">User Id</label>
                 <input type="text" id="id" placeholder="ID" name="userid" th:value="${#authentication.getPrincipal().getId()}" readonly="readonly" />
-
+                
+                <input type="hidden" name="clinicid" id="clinicid" th:value="1"/>
+                
                 <label for="details">Details</label>
                 <input type="text" name="details" id="details" placeholder="Details" required />
 

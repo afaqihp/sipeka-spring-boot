@@ -38,7 +38,7 @@ public class UserService {
     }
    
     public void registerDefaultUser(User user) {
-        Role role = roleRepository.findById(2);
+        Role role = roleRepository.findByDescription("USER");
         user.addRole(role);
         
         userRepository.save(user);

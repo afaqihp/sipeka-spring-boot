@@ -38,5 +38,9 @@ public class Clinic {
     @OneToMany(mappedBy = "clinic")
     private List<Doctor> doctors;
     
+    //Relasi dimana suatu klink memiliki banyak clinic registration
+    @OneToMany(mappedBy = "clinic")
+    private List<Appointment> appointments;
+        
    //Getter dan setter otomatis generate oleh dependency Lombok 
 }

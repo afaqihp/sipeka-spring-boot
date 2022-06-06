@@ -44,8 +44,12 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "userid", insertable = false, updatable = false)
     private User user;
-    
     private int userid;
+    
+    @ManyToOne
+    @JoinColumn(name = "clinicid", insertable = false, updatable = false)
+    private Clinic clinic;
+    private int clinicid;
     
     //Getter dan setter otomatis generate oleh dependency Lombok
     

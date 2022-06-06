@@ -57,16 +57,7 @@ public class ClinicController {
         }
         return "klinik_manage";
     }
-    
- 
-    //Menambahkan appointment baru
-//    @RequestMapping("/clinic/manageAppointment")
-//    public String addAppointment(Model model) {
-//        Appointment appointment = new Appointment();
-//        model.addAttribute("appointment", appointment);
-//        return "klinik_manage";
-//    }
-    
+       
     //Menyimpan appointment
     @RequestMapping(value = "/clinic/saveAppointment", method = RequestMethod.POST)
     public String saveAppointment(@ModelAttribute("appointment") Appointment appointment) {        

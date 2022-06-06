@@ -41,7 +41,6 @@ public class Doctor {
     @ManyToOne
     @JoinColumn(name = "clinicid", insertable = false, updatable = false)
     private Clinic clinic;
-    
     private int clinicid;
     
     //Getter dan setter otomatis generate oleh dependency Lombok
