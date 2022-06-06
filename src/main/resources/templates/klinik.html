@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Clinic | SIPEKA STIS</title>
+</head>
+<body>
+    <div layout:fragment="content"> 
+        <div class="title">
+              <h2>Clinic</h2>
+            </div>
+            <br />
+            <div sec:authorize="hasAuthority('ADMIN')">
+              <a th:href="@{/clinic/viewAll}" class="btn">View All Clinic Registration</a>
+            </div>
+
+            <!--Form mendaftar klinik-->
+            <div class="form">
+              <form th:action="@{/clinic/saveAppointment}" method="POST">
+                <h3>Clinic Registration</h3>
+                <label for="id">User Id</label>
+                <input type="text" id="id" placeholder="ID" name="userid" th:value="${#authentication.getPrincipal().getId()}" readonly="readonly" />
+
+                <label for="details">Details</label>
+                <input type="text" name="details" id="details" placeholder="Details" required />
+
+                <label for="date">Jadwal</label>
+                <input type="date" placeholder="Tanggal" id="date" name="schedule" required />
+
+                <button>Register</button>
+                <br />
+                <br />
+              </form>
+            </div>
+            <!--Akhir form-->
+
+            <!--Daftar history klinik user-->
+            <div class="title" id="clinic-history">
+              <h2>Clinic Registration History</h2>
+            </div>
+
+<!--            <div class="search">
+              <input type="text" placeholder="Search.." id="keyword" name="keyword" />
+              <button type="submit" name="search" id="search"><img src="./assets/image/search.png" alt="" /></button>
+            </div>-->
+
+            <table>
+              <tr>
+                <th>ID</th>
+                <th>Details</th>
+                <th>Schedule</th>
+                <th colspan="2">Action</th>
+              </tr>
+              <tr th:each="apt:${appointment}">
+                <td th:text="${apt.id}"></td>
+                <td th:text="${apt.details}"></td>
+                <td th:text="${#dates.format(apt.schedule, 'dd-MMM-yyyy')}"></td>
+                <td>
+                  <a th:href="@{'/clinic/edit/' + ${apt.id}}"><img src="/assets/image/pencil.png" alt="" /></a>
+                  <a th:href="@{'/clinic/delete/' + ${apt.id}}" onclick="return confirm('Are your sure want to delete?'); "><img src="/assets/image/delete.png" alt="" /></a>
+                </td>
+              </tr>
+            </table>
+    </div>
+</body>
+</html>

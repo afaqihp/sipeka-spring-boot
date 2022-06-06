@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Doctor | SIPEKA STIS</title>
+</head>
+<body>
+    <div layout:fragment="content"> 
+            <div class="title">
+              <h2>Add New Doctor</h2>
+            </div>
+            <br />
+            <a th:href="@{/doctor/}" class="btn">Back</a>
+
+            <div class="form">
+              <form th:action="@{/doctor/save}" method="POST">
+                <h3>Add Doctor Profile</h3>
+                <label for="nama">Name</label>
+                <input type="text" placeholder="Nama Lengkap" id="nama" name="name" required />
+
+                <label for="ddlClinic">Clinic</label>
+                <select name="clinicid" id="ddlClinic" required>
+                  <option value="">--SELECT--</option>
+                  <option th:each="cli:${clinic}" th:value="${cli.id}" th:text="${cli.name}"></option>
+                </select>
+
+                <label for="age">Age</label>
+                <input type="number" placeholder="Age" id="age" name="age" min="17" max="100" required />
+
+                <label for="specialty">Specialty</label>
+                <input type="text" placeholder="Specialty" id="specialty" name="specialty" required pattern="[A-Za-z]+" title="Alfabet saja!" />
+
+                <label for="contact">Phone Number</label>
+                <input type="text" placeholder="Phone Number" id="contact" name="contact" required pattern="62[0-9]+$" title="Diawali dengan 62! Contoh : 628xxxx" />
+                <button>Add</button>
+                <br />
+              </form>
+            </div>
+    </div>
+</body>
+</html>

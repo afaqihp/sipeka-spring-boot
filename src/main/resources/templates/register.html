@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Register | SIPEKA STIS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+    <!--<link rel="icon" href="/assets/image/stis.png" type="image/x-icon">-->
+
+    <style media="screen">
+      *,
+      *:before,
+      *:after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f1f1f1;
+      }
+
+      div.form {
+        display: block;
+        text-align: center;
+      }
+
+      form {
+        align-items: center;
+        height: 800px;
+        width: 400px;
+        background-color: white;
+        display: inline-block;
+        margin-top: 10vh;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        margin-bottom: 10vh;
+
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        padding: 50px 35px;
+      }
+
+      form * {
+        font-family: "Poppins", sans-serif;
+        color: black;
+        letter-spacing: 0.5px;
+        outline: none;
+        border: none;
+      }
+
+      form h3 {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 42px;
+        text-align: center;
+      }
+
+      label {
+        display: block;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      input {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: #f1f1f1;
+        border-radius: 3px;
+        padding: 0 10px;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 300;
+      }
+
+      ::placeholder {
+        color: black;
+      }
+
+      button {
+        margin-top: 50px;
+        width: 100%;
+        background-color: #1f75f6;
+        color: white;
+        padding: 15px 0;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="form">
+      <form th:action="@{/users/addNew}" method="POST">
+        <h3>SIPEKA STIS</h3>
+
+        <label for="nama">Nama</label>
+        <input type="text" placeholder="Full Name" id="nama" name="fullname" required pattern="[a-zA-Z ]+" title="Alfabet saja!" />
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" id="username" name="username" required pattern="[a-zA-Z][a-zA-Z0-9-_]{3,24}" title="Panjang 4 sampai 24 karakter dan gunakan huruf sebagai karakter pertama" />
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" name="password" required 
+               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" title="Minimal harus memuat satu huruf kapital dan non kapital, panjang minimal 4 karakter" />
+
+        <label for="password">Konfirmasi Password</label>
+        <input type="password" placeholder="Password" id="confirmPassword" required />
+
+        <button>Buat Akun</button>
+        <br />
+        <br />
+         <p>Sudah memiliki akun? <br> <br><a th:href="@{/login}" class="btn">Login Akun</a> </p>
+      </form>
+    </div>
+  </body>
+</html>

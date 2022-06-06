@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="stylesheet" href="/assets/css/loginstyle.css" />
+    <script src="/assets/js/myScript.js"></script>
+    <title>Dashboard | SIPEKA STIS</title>
+  </head>
+
+  <body>
+    <!-- Bagian kontainer -->
+    <div id="main" class="container">
+      <!-- Bagian header -->
+      <div id="my-header" class="header">
+        <div class="nav">
+          <!--<span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span>-->
+          <span><img style="width: 48px" src="/assets/image/logo.png" alt="" /></span>
+          <div class="header-title">
+            <h1>SIPEKA STIS</h1>
+          </div>
+          <div class="user">
+            <a th:href="@{/student}" class="btn">Back</a>
+          </div>
+        </div>
+      </div>
+      <!-- Akhir header -->
+
+      <!-- Awal konten -->
+      <div class="content">
+        <div class="content-2">
+          <div class="main-content">
+            <div class="title">
+              <h2>Profile</h2>
+              <!-- <a href="#" class="btn">View All</a> -->
+            </div>
+
+            <div class="search">
+              <input type="text" placeholder="Search.." />
+              <button type="submit"><img src="./assets/image/search.png" alt="" /></button>
+              <!-- <button>Cari</button> -->
+            </div>
+
+            <!-- Untuk tabel -->
+            <table>
+              <tr>
+                <!--<th>Id</th>-->
+                <th>Name</th>
+                <th>Age</th>
+                <th>Weight</th>
+                <th>Height</th>
+                <th colspan="2">Action</th>
+              </tr>
+              <tr th:each="std:${student}">
+                <!--<td th:text="${doct.id}"></td>-->
+                <td th:text="${std.name}"></td>
+                <td th:text="${std.age}"></td>
+                <td th:text="${std.weight}"></td>
+                <td th:text="${std.height}"></td>
+                <!--<td><a href="https://wa.me/${doct.contact}" class="btn">Whatsapp</a></td>-->
+                <!--<td><a href="whatsapp://send?text=Hello World!&phone=+${doct.contact}" class="btn">Whatsapp</a></td>-->
+                <td>
+                  <a th:href="@{'student/edit/' + ${std.id}}"><img src="/assets/image/pencil.png" alt="" /></a>
+                  <a th:href="@{'student/delete/' + ${std.id}}"><img src="/assets/image/delete.png" alt="" /></a>
+                </td>
+              </tr>
+            </table>
+            <!-- Akhir tabel -->
+          </div>
+        </div>
+      </div>
+      <!-- Akhir konten -->
+
+      <!-- Bagian footer -->
+      <div id="my-footer" class="footer">
+        <p>Created By Faqih</p>
+        <div class="social-links">
+          <a href="mailto:ahmadfaqihp@gmail.com" target="_blank">
+            <img src="/assets/image/email.png" alt="Email" />
+          </a>
+          <a href="https://www.instagram.com/afaqihp/" target="_blank">
+            <img src="/assets/image/ig.png" alt="Instagram" />
+          </a>
+          <a href="https://wa.me/6285273621577" target="_blank">
+            <img src="/assets/image/whatsapp.png" alt="Twitter" />
+          </a>
+        </div>
+      </div>
+      <!-- Akhir footer -->
+    </div>
+    <!-- Akhir kontainer -->
+  </body>
+</html>

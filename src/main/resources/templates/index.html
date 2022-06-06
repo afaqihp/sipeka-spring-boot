@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Home | SIPEKA STIS</title>
+</head>
+<body>
+    <div layout:fragment="content"> 
+        <div class="title">
+              <h2>Home</h2>
+            </div>
+
+            <div class="title2">
+              <h3>Welcome</h3>
+              &nbsp;
+              <h3 th:text="${#authentication.getPrincipal().getFullname()}">Welcome Guest</h3>
+              &nbsp;
+              <h3>, Have a Great Day!</h3>
+            </div>
+        <br>
+        <br>
+
+            <div class="text">
+                        <p><strong>SIPEKA STIS</strong> merupakan suatu platform kesehatan yang bertujuan untuk mengelola kesehatan para Civitas Akademika Polstat STIS. Situs ini diluncurkan pada Juni 2022 sebagai salah satu projek tugas akhir untuk mata kuliah Pemrograman Berorientasi Objek dengan Dosen Pengampu <strong>Bapak Nano Yulian Pratama SST, M.T</strong>
+                        </p>
+                        <br>
+                        <p>Situs ini terdiri dari beberapa fitur seperti integrasi dengan <strong>klinik</strong> kesehatan kampus Polstat STIS untuk pendaftaran klinik kesehatan, serta fitur untuk melihat daftar <strong>dokter</strong> dengan kontak yang tersedia. Kedepannya diharapkan pengembangan website ini lebih lanjut dapat menjadi media yang bermanfaat bagi Civitas Akademika Polstat STIS.
+                        </p>
+            </div>
+    </div>
+</body>
+</html>

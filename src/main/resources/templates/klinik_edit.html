@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Clinic | SIPEKA STIS</title>
+</head>
+<body>
+    <div layout:fragment="content"> 
+            <div class="title">
+              <h2>Edit Appointment</h2>
+              
+            </div>
+            <br />
+            <a th:href="@{/clinic/}" class="btn">Back</a>
+
+            <div class="form">
+              <form th:action="@{/clinic/saveAppointment}" method="POST" th:object="${appointment}">
+                <h3>Edit Clinic Registration</h3>
+                <label for="id">ID</label>
+                <input type="text" name="id" id="id" placeholder="ID" th:field="*{id}" readonly="readonly" />
+
+                <label for="id">User Id</label>
+                <input type="text" id="id" placeholder="ID" name="userid" th:field="*{userid}" readonly="readonly" />
+
+                <label for="details">Details</label>
+                <input type="text" name="details" id="details" placeholder="Details" th:field="*{details}" required />
+
+                <label for="date">Schedule</label>
+                <input type="date" placeholder="Tanggal" id="date" name="schedule" th:field="*{schedule}" required />
+
+                <button>Edit</button>
+                <br />
+                <br />
+              </form>
+            </div>
+    </div>
+</body>
+</html>

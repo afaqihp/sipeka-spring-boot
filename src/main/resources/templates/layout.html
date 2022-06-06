@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html 
+    lang="en" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE"></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/assets/css/styles.css" />
+        <link rel="stylesheet" href="/assets/css/loginstyle.css" />
+        <script src="/assets/js/myScript.js"></script>
+        <link rel="icon" href="/assets/image/stis.png" type="image/x-icon">
+        <title>Dashboard | SIPEKA STIS</title>
+    </head>
+    <body>
+        <!-- Bagian side menu -->
+    <div id="my-side-menu" class="side-menu">
+      <ul>
+        <br />
+        <br />
+        <a href="javascript:void(0)" onclick="closeNav()">
+          <li>
+            <img src="/assets/image/cancel.png" alt="" />
+          </li>
+        </a>
+        <a th:href="@{/index}">
+          <li>
+            <img src="/assets/image/house.png" alt="" />
+            &nbsp; <span>Home</span>
+          </li>
+        </a>
+<!--        <a th:href="@{/profile}">
+          <li>
+            <img src="/assets/image/user.png" alt="" />
+            &nbsp; <span>Student</span>
+          </li>
+        </a>-->
+        <a th:href="@{/clinic}">
+          <li>
+            <img src="/assets/image/hospital.png" alt="" />
+            &nbsp; <span>Clinic</span>
+          </li>
+        </a>
+        <a th:href="@{/doctor}">
+          <li>
+            <img src="/assets/image/doctor.png" alt="" />
+            &nbsp; <span>Doctor</span>
+          </li>
+        </a>
+      </ul>
+    </div>
+    <!-- Akhir side-menu -->
+    
+    <!-- Bagian kontainer -->
+    <div id="main" class="container">
+      <!-- Bagian header -->
+      <div id="my-header" class="header">
+        <div class="nav">
+          <span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span>
+          <div class="header-title">
+            <h1>SIPEKA STIS</h1>
+          </div>
+          <div class="user">
+            <a th:href="@{/logout}" class="btn">Logout</a>
+          </div>
+        </div>
+      </div>
+      <!-- Akhir header -->
+
+       <!-- Awal konten -->
+      <div class="content">
+        <div class="content-2">
+          <div class="main-content" layout:fragment="content" >
+<!--              <div layout:fragment="content">
+                  
+              </div>       -->
+          </div>
+        </div>
+      </div>
+      <!-- Akhir konten -->
+
+      <!-- Bagian footer -->
+      <div id="my-footer" class="footer">
+        <p>Created By Faqih</p>
+        <div class="social-links">
+          <a href="mailto:ahmadfaqihp@gmail.com" target="_blank">
+            <img src="/assets/image/email.png" alt="Email" />
+          </a>
+          <a href="https://www.instagram.com/afaqihp/" target="_blank">
+            <img src="/assets/image/ig.png" alt="Instagram" />
+          </a>
+          <a href="https://wa.me/6285273621577" target="_blank">
+            <img src="/assets/image/whatsapp.png" alt="Twitter" />
+          </a>
+        </div>
+      </div>
+      <!-- Akhir footer -->
+
+    </body>    
+</html>

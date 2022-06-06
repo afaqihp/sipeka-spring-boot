@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Clinic | SIPEKA STIS</title>
+</head>
+<body>
+    <div layout:fragment="content"> 
+            <div class="title">
+              <h2>Appointment</h2>
+            </div>
+        
+            <br />
+            <a th:href="@{/clinic/}" class="btn">Back</a>
+            
+           <form th:action="@{/clinic/viewAll}" method="get">
+                <div class="search">
+                    <input type="text" id="txtSearch" placeholder="Search.." name="keyword" />
+                    <button id="btnSearch" type="submit"><img src="/assets/image/search.png" alt="" /></button>
+                </div>
+            </form>
+
+            <table>
+              <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Details</th>
+                <th>Schedule</th>
+                <!--<th colspan="2">Action</th>-->
+              </tr>
+              <tr th:each="apt:${appointment}">
+                <td th:text="${apt.id}"></td>
+                <td th:text="${apt.userid}"></td>
+                <td th:text="${apt.details}"></td>
+                <td th:text="${#dates.format(apt.schedule, 'dd-MMM-yyyy')}"></td>
+                <!--                <td>
+                  <a th:href="@{'/clinic/manageAppointment/edit/' + ${apt.id}}"><img src="/assets/image/pencil.png" alt="" /></a>
+                  <a th:href="@{'/clinic/manageAppointment/delete/' + ${apt.id}}"><img src="/assets/image/delete.png" alt="" /></a>
+                </td>-->
+              </tr>
+            </table>
+    </div>
+</body>
+</html>

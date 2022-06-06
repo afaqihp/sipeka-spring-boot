@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Doctor | SIPEKA STIS</title>
+</head>
+<body>
+    <div layout:fragment="content"> 
+        <div class="title">
+              <h2>Doctor</h2>
+            </div>
+
+            <br />
+            <div sec:authorize="hasAuthority('ADMIN')">
+              <a th:href="@{/doctor/add}" class="btn">Insert Doctor</a>
+            </div>
+            
+            <form th:action="@{/doctor}" method="get">
+                <div class="search">
+                    <input type="text" id="txtSearch" placeholder="Search.." name="keyword" />
+                    <button id="btnSearch" type="submit"><img src="/assets/image/search.png" alt="" /></button>
+                </div>
+            </form>
+            
+
+            <!-- Untuk tabel -->
+            <table>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Specialty</th>
+                <th>Contact</th>
+                <th sec:authorize="hasAuthority('ADMIN')" colspan="2">Action</th>
+              </tr>
+              <tr th:each="doct:${doctor}">
+                <td th:text="${doct.id}"></td>
+                <td th:text="${doct.name}"></td>
+                <td th:text="${doct.specialty}"></td>
+                <td><a th:href="@{'https://wa.me/' + ${doct.contact} + '/?text=Hello, Iam using SIPEKA STIS and I want to having a consultation with you. Can you please accept my request? Thank You'}" class="btn">Whatsapp</a></td>
+                <td sec:authorize="hasAuthority('ADMIN')">
+                  <a th:href="@{'doctor/edit/' + ${doct.id}}"><img src="/assets/image/pencil.png" alt="" /></a>
+                  <a th:href="@{'doctor/delete/'+ ${doct.id}}" onclick="return confirm('Are your sure want to delete?'); "><img src="/assets/image/delete.png" alt="" /></a>
+                </td>
+              </tr>
+            </table>
+            <!-- Akhir tabel -->
+    </div>
+</body>
+</html>
