@@ -23,7 +23,9 @@ public interface RoleRepository extends JpaRepository<Role, Integer> {
     )
     Set<Role> getUserNotRoles(Integer userId);
     
+    //Mendapatkan role by Id
     Role findById(int id);
-   
+    
+    //Mendapatkan role berdasarkan deskripsinya
     Role findByDescription(String desc);
 }
